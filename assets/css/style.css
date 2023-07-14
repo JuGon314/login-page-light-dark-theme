@@ -1,0 +1,190 @@
+/* Importando a fonte que será utilizada */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+/* Criando variáveis de cores para facilitar o trabalho durante o desenvolvimento */
+:root {
+    /* Tema claro, cor branca */
+    --color-light-50: #f8faf6;
+
+    /* Tema escuro, cinzas e preto */
+    --color-dark-50: #797984;
+    --color-dark-100: #312d37;
+    --color-dark-900: #000;
+
+    /* Tonalidades de roxo que serão utilizados */
+    --color-purple-50: #7c3aed;
+    --color-purple-100: #a855f7;
+    --color-purple-200: #b746ef;
+
+    /* Nova variável com gradiente de outras variáveis */
+    --color-gradient: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100), var(--color-purple-200));
+}
+
+/* Definindo propriedades comuns a todos os elementos */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilizando o main */
+#container {
+    height: 100vh;
+    width: 100%;
+    background: var(--color-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilizando o form (tema claro) */
+#login__form {
+    background-color: var(--color-light-50);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 8px;
+    gap: 30px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+    height: fit-content;
+    animation: dark-to-light-background 0.3s ease-in-out;
+}
+
+/* Estilizando o header do form */
+#form__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#form__header h1 {
+    font-size: 40px;
+    position: relative;
+}
+
+#form__header h1:before {
+    position: absolute;
+    content: '';
+    width: 40%;
+    background-color: var(--color-purple-50);
+    height: 3px;
+    bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Aumentando o tamanho do ícone */
+#mode__icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Posicionando os ícones das redes sociais e aplicando efeitos */
+#social__media {
+    display: flex;
+    justify-content: space-around;
+}
+
+#social__media img:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
+/* Manipulando os inputs */
+#inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.input-box label {
+    font-size: 14px;
+    color: var(--color-dark-50);
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text;
+    border-bottom: 1px solid var(--color-purple-50);
+}
+
+.input-field i {
+    font-size: 18px;
+    color: var(--color-dark-900);
+}
+
+.input-field input {
+    border: none;
+    background-color: transparent;
+    width: 260px;
+    font-size: 18px;
+    padding: 0 5px;
+}
+
+.input-field input:focus {
+    outline: none;
+}
+
+/* Estilizando a "Forgot password?" */
+#forgot__password a {
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--color-dark-50);
+}
+
+#forgot__password a:hover {
+    color: var(--color-purple-50);
+}
+
+/* Estilizando o botão login */
+#login__button {
+    background: var(--color-gradient);
+    color: var(--color-light-50);
+    padding: 7px;
+    font-size: 18px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid var(--color-dark-100);
+}
+
+#login__button:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* Crinado a classe dark */
+.dark#login__form {
+    color: var(--color-light-50);
+    background-color: var(--color-dark-100);
+    animation: light-to-dark-background 0.3s ease-in-out;
+}
+
+.dark#login__form .input-field input,
+.dark#login__form .input-field i {
+    color: var(--color-light-50);
+}
+
+/* Trazer mais suavidade na hora de trocar os temas */
+@keyframes dark-to-light-background {
+    0% {
+        background-color:var(--color-dark-100);
+    }
+    100.0% {
+        background-color:var(--color-light-50);
+    }
+}
+
+@keyframes light-to-dark-background {
+    0% {
+        background-color:var(--color-light-50);
+    }
+    100.0% {
+        background-color:var(--color-dark-100); 
+    }
+}
